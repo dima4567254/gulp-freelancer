@@ -18,5 +18,13 @@ import {
     copy
 } from "./gulp/tasks/copy.js";
 
+function watcher() {
+    gulp.watch(path.watch.files, copy);
+   // gulp.watch(path.watch.html, html);
+}
+
+const dev = gulp.series(copy, watcher);
+//series -метод выполняет задачи последовательно
+
 //выполнение сценария по умолчанию
-gulp.task('default', copy);
+gulp.task('default', dev);
