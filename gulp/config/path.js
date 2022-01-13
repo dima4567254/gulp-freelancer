@@ -8,9 +8,11 @@ const srcFolder = `./src`;
 export const path = {
     /*пути*/
     build: {
+        html: `${buildFolder}/`,
         files: `${buildFolder}/files/` /*,*/ /*куда мы хотим перенести!!!*/
     },
     src: {
+        html: `${srcFolder}/*.html`,
         files: `${srcFolder}/files/**/*.*`,
         /*путь к папке которую мы копируем!!!*/
         /*
@@ -20,6 +22,7 @@ export const path = {
         */
     },
     watch: {
+        html: `${srcFolder}/**/*.html`,
         files: `${srcFolder}/files/**/*.*`,
     },
     clean: buildFolder,
