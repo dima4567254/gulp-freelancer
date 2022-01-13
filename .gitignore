@@ -11,6 +11,8 @@ dist/
 node_modules/
 package-lock.json
 app/css/*
+package.json
+package-lock.json
 
 
 
