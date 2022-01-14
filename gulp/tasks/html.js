@@ -4,13 +4,19 @@ import versionNumber from "gulp-version-number";
 
 export const html = () => {
     return app.gulp.src(app.path.src.html)
+        
+    /*.pipe(app.plugins.plumber(
+            app.plugins.notify.onError({
+                        /*.onerror ,
+                title: "HTML",
+                message: "Error: <%= error.message %>"
+            })
+        ))*/
 
+        .pipe(fileInclude())
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
-
-
-        .pipe(app.gulp.dest(app.path.build.html))
         .pipe(webpHtmlNosvg())
-        .pipe(fileInclude()).pipe(
+        .pipe(
             versionNumber({
                 'value': '%DT%',
                 'append': {
@@ -26,4 +32,8 @@ export const html = () => {
                 }
             })
         )
+        .pipe(app.gulp.dest(app.path.build.html))
+
+
+
 }
