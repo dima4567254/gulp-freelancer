@@ -31,6 +31,10 @@ import {
     html
 } from "./gulp/tasks/html.js";
 
+import {
+    server
+} from "./gulp/tasks/server.js";
+
 function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
@@ -40,7 +44,7 @@ function watcher() {
 
 const mainTasks = gulp.parallel(copy, html);
 
-const dev = gulp.series(reset, mainTasks, watcher);
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 //series -метод выполняет задачи последовательно
 
 //выполнение сценария по умолчанию
