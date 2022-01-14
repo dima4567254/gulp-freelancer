@@ -8,10 +8,12 @@ const srcFolder = `./src`;
 export const path = {
     /*пути*/
     build: {
+        css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
         files: `${buildFolder}/files/` /*,*/ /*куда мы хотим перенести!!!*/
     },
     src: {
+        scss: `${srcFolder}/scss/style.scss`,
         html: `${srcFolder}/*.html`,
         files: `${srcFolder}/files/**/*.*`,
         /*путь к папке которую мы копируем!!!*/
@@ -22,6 +24,7 @@ export const path = {
         */
     },
     watch: {
+        scss: `${srcFolder}/scss**/*.scss`,
         html: `${srcFolder}/**/*.html`,
         files: `${srcFolder}/files/**/*.*`,
     },
