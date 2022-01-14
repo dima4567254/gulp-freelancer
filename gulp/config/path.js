@@ -8,11 +8,13 @@ const srcFolder = `./src`;
 export const path = {
     /*пути*/
     build: {
+        js: `${buildFolder}/js/`,
         css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
         files: `${buildFolder}/files/` /*,*/ /*куда мы хотим перенести!!!*/
     },
     src: {
+        js: `${srcFolder}/js/app.js`,
         scss: `${srcFolder}/scss/style.scss`,
         html: `${srcFolder}/*.html`,
         files: `${srcFolder}/files/**/*.*`,
@@ -24,6 +26,7 @@ export const path = {
         */
     },
     watch: {
+        js: `${srcFolder}/js/**/*.js`,
         scss: `${srcFolder}/scss**/*.scss`,
         html: `${srcFolder}/**/*.html`,
         files: `${srcFolder}/files/**/*.*`,
