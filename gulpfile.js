@@ -35,14 +35,20 @@ import {
     server
 } from "./gulp/tasks/server.js";
 
+import {
+    scss
+} from "./gulp/tasks/scss.js";
+
+
 function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.scss, scss);
 }
 
 //основные задачи
 
-const mainTasks = gulp.parallel(copy, html);
+const mainTasks = gulp.parallel(copy, html, scss);
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 //series -метод выполняет задачи последовательно
