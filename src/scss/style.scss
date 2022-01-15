@@ -1,10 +1,9 @@
 body {
-    background-color: black;
     display: grid;
     span {
         color: red;
     }
-    background:  url('@img/0.png') 0 0 no-repeat;
+    /*background:  url('@img/0.png') 0 0 no-repeat;*/
 
 
     @media(max-width: 768px) {

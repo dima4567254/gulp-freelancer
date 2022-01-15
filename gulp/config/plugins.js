@@ -2,11 +2,14 @@
 import replace from "gulp-replace"; //поиск и замена
 import plumber from "gulp-plumber";//оброботка ошибок
 import notify from "gulp-notify";//сообщения подсказки
-import browsersync from "browser-sync";
+import browsersync from "browser-sync";//локальный сервер
+import newer from "gulp-newer";// проверка обновления
 
+//экспортируем объект
 export const plugins = {
     replace: replace,
     plumber: plumber,
     notifi: notify,
     browsersync: browsersync,
+    newer: newer
 }
