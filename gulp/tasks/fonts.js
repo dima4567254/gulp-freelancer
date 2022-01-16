@@ -84,14 +84,7 @@ export const fontsStyle = () => {
                         } else {
                             fontWeight = 400;
                         }
-                        fs.appendFile(fontsFile,
-                            `@font-face {\r\n
-font-famaly: ${fontName};
-font-display:swap;
-src: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");
-font-weight:${fontWeight};
-font-style:normal;}
-\r\n`, cb);
+                        fs.appendFile(fontsFile, `@font-face {\n\tfont-famaly: ${fontName};\n\tfont-display:swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");font-weight:${fontWeight};\n\tfont-style:normal;\n;}\r\n`, cb);
                         newFileOnly = fontFileName;
                     }
                 }
