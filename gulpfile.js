@@ -12,6 +12,8 @@ import {
 
 //передаем значения в глобальную переменную
 global.app = {
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
     path: path,
     gulp: gulp,
     plugins: plugins
@@ -58,8 +60,6 @@ import {
 } from "./gulp/tasks/svgSprive.js";
 
 
-export { svgSprive }
-
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
@@ -69,15 +69,21 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
+export { svgSprive }
 //Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf,ttfToWoff,fontsStyle);
 
 //основные задачи
 
 const mainTasks = gulp.series(fonts, gulp.parallel( copy, html, scss, js, images));
-
+//построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset,mainTasks);
 //series -метод выполняет задачи последовательно
+
+//экспорт сценариев
+export { dev }
+export { build }
 
 //выполнение сценария по умолчанию
 gulp.task('default', dev);

@@ -2,7 +2,7 @@ import webpack from "webpack-stream";
 
 export const js = () => {
     return app.gulp.src(app.path.src.js, {
-            sourcemaps: true
+            sourcemaps: app.isDev
         })
         /*  .pipe(app.plugins.plumber(
               app.plugins.notify.onError({
@@ -13,12 +13,11 @@ export const js = () => {
 
 
 .pipe(webpack({
-    mode: 'development',/*режим разработчика*/ 
+    mode: app.isBuild ? 'production' : 'development',/*режим разработчика*/ 
     output: {
         filename: 'app.min.js',
     }
 }))
-
 
         .pipe(app.gulp.dest(app.path.build.js))
         .pipe(app.plugins.browsersync.stream());
