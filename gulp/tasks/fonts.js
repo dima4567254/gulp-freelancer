@@ -54,7 +54,8 @@ export const fontsStyle = () => {
     fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
         if (fontsFiles) {
             //проверяем существует ли файл стилей для подключения шрифтов
-            if (!fs.existsSync(fontsFile)) {/*ТУТ*/ 
+            if (!fs.existsSync(fontsFile)) {
+                /*ТУТ*/
                 //если файла нет создаем его
                 fs.writeFile(fontsFile, '', cb);
                 let newFileOnly;
@@ -84,13 +85,13 @@ export const fontsStyle = () => {
                             fontWeight = 400;
                         }
                         fs.appendFile(fontsFile,
-                            `@font-face {
-                                                 font-famaly: ${fontName};
-                                           font-display:swap;
-                                            src: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");
-                                            font-weight:${fontWeight};
-                                            font-style:normal;}
-                                            \r\n`, cb);
+                            `@font-face {\r\n
+font-famaly: ${fontName};
+font-display:swap;
+src: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName}.woff") format("woff");
+font-weight:${fontWeight};
+font-style:normal;}
+\r\n`, cb);
                         newFileOnly = fontFileName;
                     }
                 }
