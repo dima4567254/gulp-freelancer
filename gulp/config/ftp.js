@@ -1,4 +1,4 @@
-export let configFtp = {
+export let configFTP = {
     host: "", //адрес  АЕЗ сервера
     user: "", //имя пользователя
     password: "",
