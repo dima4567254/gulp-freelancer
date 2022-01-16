@@ -53,6 +53,13 @@ import {
     fontsStyle
 } from "./gulp/tasks/fonts.js";
 
+import {
+    svgSprive
+} from "./gulp/tasks/svgSprive.js";
+
+
+export { svgSprive }
+
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
